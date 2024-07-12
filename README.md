@@ -1,4 +1,5 @@
-# testesoftwaremockito
+# Teste de Software com Mockito  
+<img src="img/mockito.png" width=200/>
 
 Exemplos de utilização do Mockito em projetos Java
 
