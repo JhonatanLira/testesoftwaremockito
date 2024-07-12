@@ -2,6 +2,8 @@ package com.dio.mockito.exemplos;
 
 import me.dio.mockito.exemplos.EnviarMensagem;
 import me.dio.mockito.exemplos.Mensagem;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.Spy;
@@ -13,6 +15,7 @@ public class EnviarMensagemTeste {
     @Spy
     private EnviarMensagem enviarMensagem;
 
+    @Test
     void verificarComportamentoDaClasse(){
         Mockito.verifyNoInteractions(enviarMensagem);
 
@@ -20,5 +23,7 @@ public class EnviarMensagemTeste {
         enviarMensagem.adicionarMensagem(mensagem);
 
         Mockito.verify(enviarMensagem).adicionarMensagem(mensagem);
+
+        Assertions.assertFalse(enviarMensagem.getMensagens().isEmpty());
     }
 }

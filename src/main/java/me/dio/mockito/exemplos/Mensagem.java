@@ -1,7 +1,6 @@
 package me.dio.mockito.exemplos;
 
 public class Mensagem {
-
     private String mensagem;
 
     public String getMensagem() {

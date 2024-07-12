@@ -12,7 +12,7 @@ public class EnviarMensagem {
         this.mensagens.add(mensagem);
     }
 
-    List<Mensagem> getMensagem(){
+    public List<Mensagem> getMensagens(){
         return Collections.unmodifiableList(this.mensagens);
     }
 }
