@@ -32,4 +32,10 @@ public class ContaTeste {
 
         Mockito.verify(conta, Mockito.times(3)).validarSaldo(ArgumentMatchers.anyInt());
     }
+
+    @Test
+    void retornarTrueParaQualquerValorNaValidacaoDealdo(){
+        Mockito.doNothing().when(conta).validarSaldo(ArgumentMatchers.anyInt());
+        conta.validarSaldo(3500);
+    }
 }

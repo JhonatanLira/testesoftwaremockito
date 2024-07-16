@@ -17,6 +17,8 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doThrow;
+
 
 @ExtendWith(MockitoExtension.class)
 public class CadastrarPessoaTeste {
@@ -43,12 +45,17 @@ public class CadastrarPessoaTeste {
 
       //  DadosLocalizacao dadosLocalizacao = new DadosLocalizacao("RJ","Cabo Frio", "Ezio Cardoso da Fonseca","","Jardim Esperança");
         //Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenThrow(IllegalArgumentException.class);
-        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenReturn(null);
+       // Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenReturn(null);
+     doThrow(IllegalArgumentException.class)
+                .when(apiDosCorreios)
+                .buscaDadosComBaseNoCep(anyString());
 
-        Pessoa pessoa = cadastrarPessoa.cadastrarPessoa("Jhonatan", "000000000", LocalDate.now(),"28920000");
+        //Pessoa pessoa = cadastrarPessoa.cadastrarPessoa("Jhonatan", "000000000", LocalDate.now(),"28920000");
 
-       // Assertions.assertThrows(IllegalArgumentException.class, ()->cadastrarPessoa.cadastrarPessoa("Jhonatan", "000000000", LocalDate.now(),"28920000"));
+       Assertions.assertThrows(IllegalArgumentException.class, ()->cadastrarPessoa.cadastrarPessoa("Jhonatan", "000000000", LocalDate.now(),"28920000"));
 
-        assertNull(pessoa.getEndereco());
+       // assertNull(pessoa.getEndereco());
     }
+
+
 }
